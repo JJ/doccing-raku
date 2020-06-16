@@ -1,61 +1,63 @@
 /**
- * Blood theme for reveal.js
- * Author: Walther http://github.com/Walther
+ * Sky theme for reveal.js.
  *
- * Designed to be used with highlight.js theme
- * "monokai_sublime.css" available from
- * https://github.com/isagalaev/highlight.js/
- *
- * For other themes, change $codeBackground accordingly.
- *
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
-@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,700,300italic,700italic);
+.reveal a {
+  line-height: 1.3em; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 :root {
-  --background-color: #222;
-  --main-font: Ubuntu, sans-serif;
+  --background-color: #f7fbfc;
+  --main-font: Open Sans, sans-serif;
   --main-font-size: 40px;
-  --main-color: #eee;
+  --main-color: #333;
   --block-margin: 20px;
   --heading-margin: 0 0 20px 0;
-  --heading-font: Ubuntu, sans-serif;
-  --heading-color: #eee;
+  --heading-font: Quicksand, sans-serif;
+  --heading-color: #333;
   --heading-line-height: 1.2;
-  --heading-letter-spacing: normal;
+  --heading-letter-spacing: -0.08em;
   --heading-text-transform: uppercase;
-  --heading-text-shadow: 2px 2px 2px #222;
+  --heading-text-shadow: none;
   --heading-font-weight: normal;
-  --heading1-text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15);
+  --heading1-text-shadow: none;
   --heading1-size: 3.77em;
   --heading2-size: 2.11em;
   --heading3-size: 1.55em;
   --heading4-size: 1em;
   --code-font: monospace;
-  --link-color: #a23;
-  --link-color-hover: #dd5566;
-  --selection-background-color: #a23;
+  --link-color: #3b759e;
+  --link-color-hover: #74a7cb;
+  --selection-background-color: #134674;
   --selection-color: #fff; }
 
 .reveal-viewport {
-  background: #222;
-  background-color: #222; }
+  background: #add9e4;
+  background: -moz-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f7fbfc), color-stop(100%, #add9e4));
+  background: -webkit-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
+  background: -o-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
+  background: -ms-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
+  background: radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
+  background-color: #f7fbfc; }
 
 .reveal {
-  font-family: Ubuntu, "sans-serif";
+  font-family: "Open Sans", sans-serif;
   font-size: 40px;
   font-weight: normal;
-  color: #eee; }
+  color: #333; }
 
 .reveal ::selection {
   color: #fff;
-  background: #a23;
+  background: #134674;
   text-shadow: none; }
 
 .reveal ::-moz-selection {
   color: #fff;
-  background: #a23;
+  background: #134674;
   text-shadow: none; }
 
 .reveal .slides section,
@@ -73,13 +75,13 @@
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #eee;
-  font-family: Ubuntu, "sans-serif";
+  color: #333;
+  font-family: "Quicksand", sans-serif;
   font-weight: normal;
   line-height: 1.2;
-  letter-spacing: normal;
+  letter-spacing: -0.08em;
   text-transform: uppercase;
-  text-shadow: 2px 2px 2px #222;
+  text-shadow: none;
   word-wrap: break-word; }
 
 .reveal h1 {
@@ -95,7 +97,7 @@
   font-size: 1em; }
 
 .reveal h1 {
-  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15); }
+  text-shadow: none; }
 
 /*********************************************
  * OTHER
@@ -240,69 +242,49 @@
  * LINKS
  *********************************************/
 .reveal a {
-  color: #a23;
+  color: #3b759e;
   text-decoration: none;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #dd5566;
+  color: #74a7cb;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #6a1520; }
+  background: #264c66; }
 
 /*********************************************
  * Frame helper
  *********************************************/
 .reveal .r-frame {
-  border: 4px solid #eee;
+  border: 4px solid #333;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal a .r-frame {
   transition: all .15s linear; }
 
 .reveal a:hover .r-frame {
-  border-color: #a23;
+  border-color: #3b759e;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #a23; }
+  color: #3b759e; }
 
 /*********************************************
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
-  color: #a23; }
+  color: #3b759e; }
 
 /*********************************************
  * PRINT BACKGROUND
  *********************************************/
 @media print {
   .backgrounds {
-    background-color: #222; } }
-
-.reveal p {
-  font-weight: 300;
-  text-shadow: 1px 1px #222; }
-
-.reveal h1,
-.reveal h2,
-.reveal h3,
-.reveal h4,
-.reveal h5,
-.reveal h6 {
-  font-weight: 700; }
-
-.reveal p code {
-  background-color: #23241f;
-  display: inline-block;
-  border-radius: 7px; }
-
-.reveal small code {
-  vertical-align: baseline; }
+    background-color: #f7fbfc; } }
