@@ -106,11 +106,44 @@ class Documentable {
     at the same time</aside>
 </section>
 
-<section><h1>Documentation is <strong>precompiled</strong></h1>
-	</section>
+<section><h1>Documentation is <strong>precompiled</strong>  </h1>
+    <h2 class='fragment'>Work by Antonio Gámiz based on Richard Heinsworth's Pod::To::Cached</h2>
 
 	</section>
-	
+
+<section><h1>Register everything</h1>
+  <pre><code>        my $registry = Documentable::Registry.new(
+            :$topdir,
+            :dirs( $doc-dirs ),
+            :$typegraph-file
+            :verbose($v)
+        );
+        $registry.compose;
+  </code></pre>  
+	</section>
+
+<section><h1>Use the cache, Luke</h1>
+  <pre><code>    if ( $!use-cache ) {
+        $!pod-cache = init-cache( $!topdir, $!verbose);
+        say "Updating cache";
+        $!pod-cache.update-cache;
+    }
+  </code></pre>
+</section>
+
+<section><h1>Parse, index, repeat</h1></section>
+
+<section><h1>Generate HTML</h1>
+  <pre><code>    if ( $!use-cache ) {
+        $!pod-cache = init-cache( $!topdir, $!verbose);
+        say "Updating cache";
+        $!pod-cache.update-cache;
+    }
+  </code></pre>
+</section>
+
+</section>
+
 <section><h1>HOW do you write it? ¯\_(ツ)_/¯</h1></section>
 <section>
   <section><h1><strong>Find</strong> out about it</h1></section>
