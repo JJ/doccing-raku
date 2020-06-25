@@ -144,6 +144,10 @@ class Documentable {
         )</code></pre>
 </section>
 
+<section><h1>Generation</h1>
+  <img src='img/documentable.png' title='generating documentation'>
+</section>
+
 <section data-background='https://live.staticflickr.com/65535/40678486313_2d33c5c8c3_k_d.jpg'>
   <h1>Ship it</h1>
   <pre><code>rsync -avu -e .
@@ -168,15 +172,14 @@ $additions-removals ~~  s:g/\s\s\s\+\s/* [ ] /;
 $additions-removals ~~
     s:g[ \[(&lt;alnum>+)\] ] =
     "-[$0](https://github.com/rakudo/rakudo/commit/$0)";
-    print $additions-removals;</code>
-</pre>
+    print $additions-removals;</code></pre>
 <aside class='notes'>It's important to have the commits handy, and very grateful to Rakudo developers for including them in the Changelog. It really helps find out what's been changed.</aside>
   </section>
   
 <section><h1>Use the <strong>source</strong> and context</h1>
   <img src='img/code.png' alt='(mostly) NQP code for something'>
-    <aside class='notes'>That gives you the signature, and a general reference. Then you need to understand what it actually does by understanding the source.</aside>
-    <aside class='notes'>New releases already include the commit number in the changelog, but old ones don't, and you have to play detective a bit.</aside>
+  <aside class='notes'>That gives you the signature, and a general reference. Then you need to understand what it actually does by understanding the source.
+    New releases already include the commit number in the changelog, but old ones don't, and you have to play detective a bit.</aside>
 
 </section>
 
@@ -188,13 +191,35 @@ $additions-removals ~~
   <img src='img/commit.png' title='Helpful commit'>
 </section>
 
-  <section> <h1> Spec ≠ Rakudo ≠ Implementation</h1> </section>
+  <section> <h2> Spec ≠ Rakudo ≠ Implementation</h2>
+
+  <pre><code># https://github.com/rakudo/rakudo/issues/2568
+{
+    is-deeply 3 ~ ( 5 | "18" ), any("35","318"),
+      "does a junction survive ~ Junction";
+    is-deeply ( 5 | "18" ) ~ 3, any("53","183"),
+      "does a junction survive Junction ~";
+    is-deeply ( 5 | "18" ) ~ ( 3 | 6), any("53","56","183",186),
+      "does a junction survive Junction ~ Junction";
+}</code></pre>
+</section>
 
   <section> <h1><strong>Understand</strong> what it does</h1> </section>
 
-  <section> <h1> Produce a meaningful example </h1>
+  <section> <h1> Produce examples </h1>
     <h2 class='fragment'>Go viral</h2>
-    <aside class='notes'>Think about it. Your code is going to be pasted over and over again, for ever.</aside>
+    <pre><code>my &fail-routine = &fail;
+unless &fail-routine.is-implementation-detail {
+    say "&fail is not an implementation detail, can expect backward compatibility";
+}
+sub PRIVATE-CALCULATION is implementation-detail {
+	#`(Not safe to rely on this)
+}
+if &PRIVATE-CALCULATION.is-implementation-detail {
+        say "You better not to rely on &PRIVATE-CALCULATION unless you really know what you are doing";
+}
+    </code></pre>
+	<aside class='notes'>Think about it. Your code is going to be pasted over and over again, for ever. This was added quite recently, after the addition in the 2020.05 version of this thing that clarifies what's and what's not an implementation detail. Also, this was just deployed, after being added by Alexei Kiryukhin a few days ago.</aside>
   </section>
 
 </section>
@@ -214,7 +239,8 @@ $additions-removals ~~
 </section>
 
 <section><h1>Raku is an amazing language</h1></section>
-<section><h1>The documentation needs to be amazing too</h1></section>
+<section data-background='https://live.staticflickr.com/65535/48549954721_0a93aa703f_k_d.jpg'>
+  <h1>Documentation needs to be amazing too</h1></section>
 
       </div>
 		</div>
